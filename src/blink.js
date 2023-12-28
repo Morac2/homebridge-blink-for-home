@@ -293,7 +293,8 @@ class BlinkCamera extends BlinkDevice {
             if (this.privacyMode) return BlinkCamera.PRIVACY_BYTES;
 
             // only show the "disabled" image when the system is armed but the camera is disabled
-            if (this.armed && !this.enabled) return BlinkCamera.DISABLED_BYTES;
+            // Don't disable thumbnails if motion recording is disabled.
+            //if (this.armed && !this.enabled) return BlinkCamera.DISABLED_BYTES;
         }
 
         let thumbnailUrl = this.thumbnail;
